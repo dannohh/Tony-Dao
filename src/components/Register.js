@@ -58,10 +58,10 @@ export default function Register() {
 
 
   return (
-    <section>
+    <section className='loginsection'>
         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
         <h1>Register</h1>
-        <form onSubmit={submitHandler}>
+        <form className='loginform' onSubmit={submitHandler}>
             <label htmlFor="username">
                 Username:
                 <span className={validName ? "valid" : "hide"}>
