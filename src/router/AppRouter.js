@@ -25,7 +25,9 @@ const AppRouter = () => {
             <Route element={<Register />} path="/register" exact={true} />
             <Route element={<MedList books={books} setBooks={setBooks} />} path="/" exact={true} />
             <Route path="/add" element={<AddMed books={books} setBooks={setBooks} />} />
-            <Route element={<EditMed books={books} setBooks={setBooks} path="/edit/:id" />}/>
+            <Route path="/edit">
+              <Route path=":id" element={<EditMed books={books} setBooks={setBooks} />}/>
+            </Route>
             <Route element={<Navigate to="/" />} />
           </Routes>
         </div>

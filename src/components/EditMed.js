@@ -1,9 +1,9 @@
 import React from 'react';
 import MedForm from './MedForm';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
-const EditBook = ({ navigate, books, setBooks }) => {
-
+const EditBook = ({ books, setBooks }) => {
+  const navigate = useNavigate()
   const { id } = useParams();
   const bookToEdit = books.find((book) => book.id === id);
 
