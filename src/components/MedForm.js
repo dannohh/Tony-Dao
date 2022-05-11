@@ -5,18 +5,18 @@ import { v4 as uuidv4 } from 'uuid';
 const MedForm = (props) => {
   const [book, setBook] = useState({
     bookname: props.book ? props.book.bookname : '',
-    author: props.book ? props.book.author : '',
+    type: props.book ? props.book.type : '',
     quantity: props.book ? props.book.quantity : '',
     price: props.book ? props.book.price : '',
     date: props.book ? props.book.date : ''
   });
 
   const [errorMsg, setErrorMsg] = useState('');
-  const { bookname, author, price, quantity } = book;
+  const { bookname, type, price, quantity } = book;
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    const values = [bookname, author, price, quantity];
+    const values = [bookname, type, price, quantity];
     let errorMsg = '';
 
     const allFieldsFilled = values.every((field) => {
@@ -28,7 +28,7 @@ const MedForm = (props) => {
       const book = {
         id: uuidv4(),
         bookname,
-        author,
+        type,
         price,
         quantity,
         date: new Date()
@@ -82,13 +82,13 @@ const MedForm = (props) => {
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Form.Group controlId="author">
+        <Form.Group controlId="type">
           <Form.Label>Medication Type</Form.Label>
           <Form.Control
             className="input-control"
             type="text"
-            name="author"
-            value={author}
+            name="type"
+            value={type}
             placeholder="Enter type of Medication"
             onChange={handleInputChange}
           />

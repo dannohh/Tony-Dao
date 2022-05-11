@@ -23,7 +23,7 @@ const AppRouter = () => {
         <div className="main-content">
           <Routes>
             <Route element={<Register />} path="/register" exact={true} />
-            <Route element={<MedList />} path="/" exact={true} />
+            <Route element={<MedList books={books} setBooks={setBooks} />} path="/" exact={true} />
             <Route path="/add" element={<AddMed books={books} setBooks={setBooks} />} />
           </Routes>
         </div>
