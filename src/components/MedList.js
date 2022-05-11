@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import Book from './Med';
+import Med from './Med';
 
 const MedList = ({ books, setBooks }) => {
 
@@ -13,10 +13,10 @@ const MedList = ({ books, setBooks }) => {
       <div className="book-list">
         {!_.isEmpty(books) ? (
           books.map((book) => (
-            <Book key={book.id} {...book} handleRemoveBook={handleRemoveBook} />
+            <Med key={book.id} {...book} handleRemoveBook={handleRemoveBook} />
           ))
         ) : (
-          <p className="message">No books available. Please add some books.</p>
+          <p className="message">No medications available. Please add some medications.</p>
         )}
       </div>
     </React.Fragment>

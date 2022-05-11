@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom'
 
 const Med = ({
   id,
@@ -10,6 +11,7 @@ const Med = ({
   date,
   handleRemoveBook
 }) => {
+    const navigate = useNavigate()
   return (
     <Card style={{ width: '18rem' }} className="book">
       <Card.Body>
@@ -20,7 +22,9 @@ const Med = ({
           <div>Price: {price} </div>
           <div>Date: {new Date(date).toDateString()}</div>
         </div>
-        <Button variant="primary">Edit</Button>{' '}
+        <Button variant="primary" onClick={() => navigate(`/edit/${id}`)}>
+            Edit
+        </Button>{' '}
         <Button variant="danger" onClick={() => handleRemoveBook(id)}>
           Delete
         </Button>
